@@ -8,9 +8,12 @@ import List from './pages/List/List';
 import Payment from './pages/Payment/Payment';
 import Seats from './pages/Seats/Seats';
 
+import Nav from './components/Nav/Nav';
+
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
