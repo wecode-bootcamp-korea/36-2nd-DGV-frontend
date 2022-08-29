@@ -6,9 +6,8 @@ import Booking from './pages/Booking/Booking';
 import Detail from './pages/Detail/Detail';
 import List from './pages/List/List';
 import Payment from './pages/Payment/Payment';
-import Seats from './pages/Seats/Seats';
-
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 
 const Router = () => {
   return (
@@ -21,8 +20,8 @@ const Router = () => {
         <Route path="/detail" element={<Detail />} />
         <Route path="/list" element={<List />} />
         <Route path="/payment" element={<Payment />} />
-        <Route path="/seats" element={<Seats />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
