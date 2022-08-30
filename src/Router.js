@@ -10,7 +10,7 @@ import Seats from './pages/Seats/Seats';
 import Mypage from './pages/Mypage/Mypage';
 import ReservedMovies from './pages/Mypage/MypageSubs/ReservedMovies';
 import MypageMain from './pages/Mypage/MypageSubs/MypageMain';
-import Nav from './components/Nav/Nav';
+import Nav from './src/components/Nav/Nav.js';
 
 const Router = () => {
   return (
