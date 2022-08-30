@@ -7,7 +7,9 @@ import Detail from './pages/Detail/Detail';
 import List from './pages/List/List';
 import Payment from './pages/Payment/Payment';
 import Seats from './pages/Seats/Seats';
-
+import Mypage from './pages/Mypage/Mypage';
+import ReservedMovies from './pages/Mypage/MypageSubs/ReservedMovies';
+import MypageMain from './pages/Mypage/MypageSubs/MypageMain';
 import Nav from './components/Nav/Nav';
 
 const Router = () => {
@@ -22,6 +24,10 @@ const Router = () => {
         <Route path="/list" element={<List />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/seats" element={<Seats />} />
+        <Route path="/mypage/*" element={<Mypage />}>
+          <Route index element={<MypageMain />} />
+          <Route path="bookedlist" element={<ReservedMovies />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
