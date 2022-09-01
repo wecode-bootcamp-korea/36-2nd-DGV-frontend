@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import styled from 'styled-components';
 import NavMain from './NavMain';
 import NavShort from './NavShort';
 
@@ -12,10 +13,15 @@ function Nav() {
   window.addEventListener('scroll', onScroll);
 
   return (
-    <div>
+    <Container>
       <NavMain />
       {scroll >= 160 && <NavShort />}
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  z-index: 1000;
+`;
+
 export default Nav;

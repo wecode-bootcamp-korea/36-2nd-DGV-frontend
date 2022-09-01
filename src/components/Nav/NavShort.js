@@ -21,7 +21,7 @@ function NavShort() {
           onMouseLeave={hideList}
         >
           <LogoLink to="/">
-            <LogoImg src="https://img.cgv.co.kr/R2014/images/common/logo/logoWhite.png" />
+            <LogoImg src="/images/Nav/dgv-white5.png" />
             {LIST.map(item => {
               return <H1 key={item.id}>{item.list}</H1>;
             })}
@@ -63,6 +63,7 @@ const Container = styled.div`
   );
   position: fixed;
   top: 0px;
+  z-index: 10;
 `;
 
 const LogoLink = styled(Link)`
