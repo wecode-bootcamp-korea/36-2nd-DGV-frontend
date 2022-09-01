@@ -8,12 +8,8 @@ function NavTop() {
       <InnerWrap>
         <LogoDiv>
           <LogoLink to="/">
-            <Img
-              src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png"
-              width="117px"
-              height="53px"
-            />
-            <H1>CULTUREPLEX</H1>
+            <Img src="/images/Nav/dgv-red5.png" width="117px" height="53px" />
+            <H1>DaGreatFive</H1>
           </LogoLink>
         </LogoDiv>
         <UserMapDiv>

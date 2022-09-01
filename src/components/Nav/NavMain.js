@@ -19,7 +19,6 @@ const Container = styled.div`
   width: 100vw;
   border-bottom: 2px solid red;
   background-color: white;
-  z-index: 10;
 `;
 
 const InnerWrap = styled.div`

@@ -31,7 +31,7 @@ function Dropdown({ isShow, onMouseLeave, onMouseEnter, top }) {
           <H1 fontWeight="800">예매</H1>
           {BOOK.map(item => {
             return (
-              <StyleLink to="/mypage" key={item.id}>
+              <StyleLink to={item.url} key={item.id}>
                 <li>{item.list}</li>
               </StyleLink>
             );
@@ -70,10 +70,10 @@ const THEATER = [
   { id: 2, list: ' 특별관 ' },
 ];
 const BOOK = [
-  { id: 1, list: ' 빠른예매 ' },
-  { id: 2, list: ' 상영스케줄 ' },
-  { id: 3, list: ' English Ticketing ' },
-  { id: 4, list: ' English Schedule ' },
+  { id: 1, list: ' 빠른예매 ', url: '/booking' },
+  { id: 2, list: ' 상영스케줄 ', url: '/' },
+  { id: 3, list: ' English Ticketing ', url: '/' },
+  { id: 4, list: ' English Schedule ', url: '/' },
 ];
 const STORE = [
   { id: 1, list: ' 영화관람권 ' },
