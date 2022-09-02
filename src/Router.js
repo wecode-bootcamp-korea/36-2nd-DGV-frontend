@@ -11,10 +11,14 @@ import Mypage from './pages/Mypage/Mypage';
 import ReservedMovies from './pages/Mypage/MypageSubs/ReservedMovies';
 import MypageMain from './pages/Mypage/MypageSubs/MypageMain';
 import Nav from './src/components/Nav/Nav.js';
+import MovieChart from './pages/Moviechart/MovieChart';
+import ComingUp from './pages/Moviechart/SubMovieChart/ComingUp';
+import MovieList from './pages/Moviechart/SubMovieChart/MovieList';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
@@ -26,6 +30,10 @@ const Router = () => {
         <Route path="/mypage/*" element={<Mypage />}>
           <Route index element={<MypageMain />} />
           <Route path="bookedlist" element={<ReservedMovies />} />
+        </Route>
+        <Route path="/moviechart/*" element={<MovieChart />}>
+          <Route index element={<MovieList />} />
+          <Route path="comingup" element={<ComingUp />} />
         </Route>
       </Routes>
     </BrowserRouter>
