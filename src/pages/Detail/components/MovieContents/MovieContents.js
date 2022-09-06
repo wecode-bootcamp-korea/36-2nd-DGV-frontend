@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function MovieContents({ title, actor, dir }) {
+function MovieContents({ title }) {
   return (
     <Container>
       <Contents>
-        {actor} 주연
-        <br /> {dir}감독
+        현빈 , 유해진 , 임윤아, 다니엘헤니 주연
+        <br /> 이석훈감독
         <br />
         <br /> 올해 최고의 개봉작 &nbsp;
         <Strong>[ {title} ]</Strong>

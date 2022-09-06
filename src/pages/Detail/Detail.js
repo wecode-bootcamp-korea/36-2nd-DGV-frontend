@@ -1,45 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Button from './Button/Button';
-import Carousel from './carousel/Carousel';
-import MovieContents from './MovieContents/MovieContents';
-import Index from './Index/Index';
+import Button from './components/Button/Button';
+import Carousel from './components/carousel/Carousel';
+import MovieContents from './components/MovieContents/MovieContents';
+import { useParams } from 'react-router-dom';
+import { API } from '../../config';
+import Index from './components/Index/Index';
 
 function Detail() {
-  const [movieInfo, setMovieInfo] = useState([]);
+  const [movieInfo, setMovieInfo] = useState({});
   const [getTitle, setGetTitle] = useState('');
-  const [getActor, setGetActor] = useState('');
-  const [getDir, setGetDir] = useState('');
+
+  const params = useParams();
 
   useEffect(() => {
-    fetch('/data/Movie.json')
+    fetch(`${API.detail}/${params.movieId}`)
       .then(response => response.json())
       .then(result => setMovieInfo(result));
-  }, []);
+  }, [params.movieId]);
+
+  const imageSrc = movieInfo.images.Object.values();
   return (
     <Container>
       <InnerWrap>
         {movieInfo.map(item => {
           return (
             <MovieInfoWrap
-              key={item.id}
+              key={item.movieId}
               onLoad={() => {
                 setGetTitle(item.title);
-                setGetActor(item.actor);
-                setGetDir(item.dir);
               }}
             >
-              <Img src={item.url} />
+              <Img src={item.thumbnail_image_url} />
               <MovieDetailWrap>
                 <MovieTitle>
-                  {item.title} <Age>{item.age}</Age>
+                  {item.title} <Age>15</Age>
                 </MovieTitle>
                 <MovieInfo>
-                  <div>{item.country}</div>
+                  <div>한국</div>
                   <div>{item.genre} (129분)</div>
-                  <div> 개봉: {item.date}</div>
-                  <div>감독: {item.dir}</div>
-                  <div>배우: {item.actor}</div>
+                  <div> 개봉: {item.opening_date}</div>
+                  <div>감독: 이석훈</div>
+                  <div>배우: 현빈 , 유해진 , 임윤아, 다니엘헤니</div>
                 </MovieInfo>
                 <Button />
               </MovieDetailWrap>
@@ -48,11 +50,15 @@ function Detail() {
         })}
         <Hr />
         <Index />
-        <Subtitle id="1">영화 줄거리</Subtitle>
-        <MovieContents title={getTitle} actor={getActor} dir={getDir} />;
-        <Subtitle id="2">스틸컷</Subtitle>
-        <Carousel />
-        <Ad src="/images/Detail/Ad.png" />
+        <div id="1" />
+        <Subtitle>영화 줄거리</Subtitle>
+        <MovieContents title={getTitle} />
+        <div id="2" />
+        <Subtitle>스틸컷</Subtitle>
+        <Carousel id={imageSrc} />
+        <Yellowbg>
+          <Ad src="/images/Detail/Ad.png" alt="ad" />
+        </Yellowbg>
       </InnerWrap>
     </Container>
   );
@@ -83,7 +89,7 @@ const Subtitle = styled.div`
   background-color: #f6f6f6;
   color: #666666;
   padding: 10px;
-  margin-top: 100px;
+  margin-top: 120px;
   margin-bottom: 40px;
 `;
 
@@ -98,9 +104,16 @@ const Img = styled.img`
   height: 310px;
 `;
 
-const Ad = styled.img`
-  width: 100%;
+const Yellowbg = styled.div`
+  ${({ theme }) => theme.variables.flex('column', 'center', 'center')};
+  width: 100vw;
+  background-color: #ffdf0c;
   height: 200px;
+`;
+
+const Ad = styled.img`
+  width: 980px;
+  height: 100%;
 `;
 
 const MovieTitle = styled.h1`

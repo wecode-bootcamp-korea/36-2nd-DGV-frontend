@@ -6,7 +6,11 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "date-fns": "^2.29.2",
+=======
+    "axios": "^0.27.2",
+>>>>>>> 14c6ce9 (rebase	완료)
     "react": "^18.2.0",
     "react-day-picker": "^8.2.0",
     "react-dom": "^18.2.0",

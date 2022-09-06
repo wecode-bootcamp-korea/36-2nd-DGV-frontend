@@ -4,13 +4,19 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function Carousel({ name }) {
+function Carousel({ id }) {
   const [movieInfo, setMovieInfo] = useState([]);
 
+  // useEffect(() => {
+  //   fetch(`http://10.58.4.124:3000/movie/${id}`)
+  //     .then(response => response.json())
+  //     .then(result => setMovieInfo(result));
+  // }, [id]);
+
   useEffect(() => {
-    fetch('/data/Movie.json')
+    fetch('/data/test.json')
       .then(response => response.json())
-      .then(result => setMovieInfo(result[0]));
+      .then(result => setMovieInfo(result));
   }, []);
 
   let settings = {
@@ -25,17 +31,13 @@ function Carousel({ name }) {
   };
   return (
     <Container>
-      {/* <InnerWrap> */}
       <InnerWrap {...settings}>
-        {movieInfo?.photo?.map(({ id, url }) => {
-          return (
-            <ImgWrap key={id}>
-              <Img src={url} alt="title" />
-            </ImgWrap>
-          );
+        {movieInfo.map(({ images }) => {
+          return Object.values(images).map((item, index) => {
+            return <Img src={item} key={index} alt="title" />;
+          });
         })}
       </InnerWrap>
-      {/* </InnerWrap> */}
     </Container>
   );
 }
@@ -80,7 +82,7 @@ const InnerWrap = styled(Slider)`
 
     display: block;
 
-    width: 40px;
+    width: 10px;
     height: 40px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
@@ -156,12 +158,9 @@ const InnerWrap = styled(Slider)`
   }
 `;
 
-const ImgWrap = styled.div`
-  width: 100%;
-  height: 500px;
-`;
 const Img = styled.img`
-  height: 100%;
+  height: 500px;
+
   border-radius: 15px;
 `;
 
