@@ -34,7 +34,6 @@ function Carousel({ name }) {
     slidesToScroll: 5,
     cssEase: 'linear',
   };
-
   return (
     <Container>
       <InnerWrap>
@@ -209,7 +208,6 @@ const MovieInfoWrap = styled.div`
   text-align: center;
   position: relative;
 `;
-
 const ShowMovieChart = styled.div`
   ${({ theme }) => theme.variables.flex('row', 'center', 'center')}
   width: 140px;

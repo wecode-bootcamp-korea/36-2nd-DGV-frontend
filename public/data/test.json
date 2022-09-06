@@ -1,0 +1,18 @@
+[
+  {
+    "movieId": 1,
+    "title": "무비1",
+    "eng_title": "movie1",
+    "opening_date": "2022-08-29T15:00:00.000Z",
+    "running_time": "02:30:00",
+    "genre": "액션",
+    "description": "액션영화",
+    "rating_week": "4.1",
+    "thumbnailImage": "https://image.shutterstock.com/image-photo/movie-projector-on-dark-background-600w-753798850.jpg",
+    "images": {
+      "1": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
+      "2": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80",
+      "3": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80"
+    }
+  }
+]

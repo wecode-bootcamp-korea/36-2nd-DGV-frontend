@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll/modules';
 
-const Index = props => {
+const Index = () => {
   return (
     <MiddleBlock>
       <Link to="1">
@@ -22,7 +22,7 @@ const Index = props => {
 
 const MiddleBlock = styled.div`
   ${({ theme }) => theme.variables.flex('row', 'space-evenly', 'center')};
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   background-color: #ff4a57;
   color: white;
   width: 300px;
