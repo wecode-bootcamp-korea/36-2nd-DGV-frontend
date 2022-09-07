@@ -15,12 +15,11 @@ import Nav from './src/components/Nav/Nav.js';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
         <Route path="/booking" element={<Booking />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/movie/:movieId" element={<Detail />} />
         <Route path="/list" element={<List />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/seats" element={<Seats />} />
