@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { API } from '../../../components/config/config.js';
 
 function ReservedMovies() {
-  const [movieList, setMovieList] = useState();
+  const [movieList, setMovieList] = useState([]);
   const [isMovieExist, setIsMovieExist] = useState(false);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ function ReservedMovies() {
         setIsMovieExist(true);
       });
   }, []);
+
   return (
     <div>
       <div>
@@ -116,7 +117,7 @@ const Notification = styled.div`
 
 const MovieInfoWrap = styled.div`
   width: 197px;
-  margin-left: 64px;
+  margin-left: 54px;
   margin-bottom: 30px;
 
   &:nth-child(3n + 3) {
@@ -126,10 +127,14 @@ const MovieInfoWrap = styled.div`
 
 const Img = styled.img`
   width: 197px;
+  height: 295.2px;
 `;
 
 const MovieTitle = styled.span`
   display: block;
+  margin-bottom: 10px;
   color: #333333;
+  font-size: 20px;
+  font-weight: 600;
   white-space: nowrap;
 `;

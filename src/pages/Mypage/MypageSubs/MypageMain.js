@@ -18,7 +18,6 @@ function MypageMain() {
         setIsMovieExist(true);
       });
   }, []);
-
   return (
     <div>
       <BookedMoviesHeader>
@@ -107,7 +106,7 @@ const MovieListWrapper = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 810px;
-  height: 260px;
+  height: 440px;
   padding: 30px 71px;
   border: 1px solid black;
   overflow: scroll;
