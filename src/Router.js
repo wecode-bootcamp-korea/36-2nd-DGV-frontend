@@ -10,10 +10,11 @@ import Seats from './pages/Seats/Seats';
 import Mypage from './pages/Mypage/Mypage';
 import ReservedMovies from './pages/Mypage/MypageSubs/ReservedMovies';
 import MypageMain from './pages/Mypage/MypageSubs/MypageMain';
-import Nav from './src/components/Nav/Nav.js';
 import MovieChart from './pages/Moviechart/MovieChart';
 import ComingUp from './pages/Moviechart/SubMovieChart/ComingUp';
 import MovieList from './pages/Moviechart/SubMovieChart/MovieList';
+import Footer from './components/Footer/Footer';
+import Nav from './components/Nav/Nav';
 
 const Router = () => {
   return (
@@ -36,6 +37,7 @@ const Router = () => {
           <Route path="comingup" element={<ComingUp />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

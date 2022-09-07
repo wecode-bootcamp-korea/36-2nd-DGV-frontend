@@ -1,0 +1,82 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "시멘틱에러",
+      "img": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86081/86081_320.jpg"
+    },
+    {
+      "id": 2,
+      "title": "공조",
+      "img": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86155/86155_320.jpg"
+    },
+    {
+      "id": 3,
+      "title": "탑건",
+      "img": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82120/82120_320.jpg"
+    },
+    {
+      "id": 4,
+      "title": "육사오",
+      "img": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86059/86059_320.jpg"
+    },
+    {
+      "id": 5,
+      "title": "헌트",
+      "img": "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86058/86058_320.jpg"
+    }
+  ],
+
+  "theaters": [
+    {
+      "main": "경기",
+      "sub": [
+        "동탄호수공원",
+        "안양",
+        "김포",
+        "동탄",
+        "의정부",
+        "광교",
+        "동수원",
+        "광명역"
+      ]
+    },
+    {
+      "main": "대구",
+      "sub": [
+        "대구수성",
+        "대구스타디움",
+        "대구현대",
+        "대구한일",
+        "대구월성",
+        "대구연경",
+        "대구아카데미"
+      ]
+    },
+    {
+      "main": "서울",
+      "sub": [
+        "강남",
+        "강변",
+        "구로",
+        "건대입구",
+        "등촌",
+        "명동",
+        "목동",
+        "미아"
+      ]
+    },
+    {
+      "main": "인천",
+      "sub": [
+        "계양",
+        "인천",
+        "송도타임스페이스",
+        "인천연수",
+        "인천학익",
+        "청라",
+        "주안역"
+      ]
+    }
+  ]
+}
