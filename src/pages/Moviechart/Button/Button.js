@@ -13,6 +13,7 @@ const Container = styled.div`
   ${({ theme }) => theme.variables.flex('row', 'center', 'center')}
   width: 97px;
   height: 25px;
+  margin-top: 5px;
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -20,8 +21,9 @@ const Container = styled.div`
   border-radius: 10px;
 `;
 const StyleLink = styled(Link)`
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  margin-top: 4px;
   &:visited,
   &:hover,
   &:active {
