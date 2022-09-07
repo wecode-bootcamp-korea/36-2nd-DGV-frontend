@@ -10,10 +10,6 @@ function Mypage() {
 
   const page = useLocation();
   const token = localStorage.getItem('token');
-
-  console.log('token', token);
-  console.log(typeof API.mypage);
-
   useEffect(() => {
     fetch(API.mypage, {
       method: 'GET',
@@ -21,10 +17,8 @@ function Mypage() {
     })
       .then(res => res.json())
       .then(res => setUserInfo(res));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(userInfo);
-  console.log(!!userInfo);
 
   return (
     <div>
@@ -160,23 +154,6 @@ const UserEmail = styled.span`
   font-size: 13px;
   font-weight: 500;
 `;
-
-{
-  /* const UserNickNameLabel = styled.span`
-  display: inline-block;
-  margin-right: 8px;
-  color: #342929;
-  font-size: 13px;
-  font-weight: 500;
-`;
-
-const UserNickNameSet = styled.span`
-  margin-right: 8px;
-  color: #342929;
-  font-size: 13px;
-  font-weight: 500;
-`; */
-}
 
 const ChangeNickName = styled.button`
   width: 20px;
