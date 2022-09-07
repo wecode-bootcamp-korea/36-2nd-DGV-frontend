@@ -16,7 +16,7 @@ function Booking() {
   const [activePoster, setActivePoster] = useState('');
   const [getMovieId, setGetMovieId] = useState(0);
 
-  const date = selectedDay && format(selectedDay, 'yyyy, M, dd');
+  const date = selectedDay && format(selectedDay, 'yyyy, M, d');
 
   useEffect(() => {
     fetch('http://10.58.2.182:3000/theaters/movies')

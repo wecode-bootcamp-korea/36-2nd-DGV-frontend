@@ -7,12 +7,12 @@ function ReservedMovies() {
   const [isMovieExist, setIsMovieExist] = useState(false);
 
   useEffect(() => {
-    fetch(`${API.movieChart}?orderBase=opening_date`, {
+    fetch(`${API.movieChart}opening_date`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
-        setMovieList(res);
+        setMovieList(res.orderList);
         setIsMovieExist(true);
       });
   }, []);
@@ -29,10 +29,10 @@ function ReservedMovies() {
       </div>
       <ReservedList>
         {isMovieExist ? (
-          movieList.map(({ id, img, title, date, time }) => {
+          movieList.map(({ id, thumbnail_image_url, title, date, time }) => {
             return (
               <MovieInfoWrap key={id}>
-                <Img src={img} />
+                <Img src={thumbnail_image_url} />
                 <div>
                   <MovieTitle>{title}</MovieTitle>
                   <div>
