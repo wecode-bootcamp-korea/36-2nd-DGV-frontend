@@ -108,6 +108,7 @@ const Container = styled.div`
   background-color: white;
   transition: height ease-out 0.4s 0s;
   position: absolute;
+  z-index: 1000;
 `;
 const InnerDiv = styled.div`
   ${({ theme }) => theme.variables.flex('row', 'space-between', 'flex-start')}

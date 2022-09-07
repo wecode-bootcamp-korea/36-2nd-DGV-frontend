@@ -9,7 +9,7 @@ function MypageMain() {
   const [isMovieExist, setIsMovieExist] = useState(false);
 
   useEffect(() => {
-    fetch(`${API.movieChart}?orderBase=opening_date`, {
+    fetch(`${API.movieChart}opening_date`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -32,20 +32,21 @@ function MypageMain() {
 
       {isMovieExist ? (
         <MovieListWrapper>
-          {movieList.map(({ id, img, title, date, time }) => {
-            return (
-              <MovieInfoWrap key={id}>
-                <Img src={img} />
-                <div>
-                  <MovieTitle>{title}</MovieTitle>
+          {movieList &&
+            movieList.map(({ id, thumbnail_image_url, title, date, time }) => {
+              return (
+                <MovieInfoWrap key={id}>
+                  <Img src={thumbnail_image_url} />
                   <div>
-                    <ResDate>예매날짜: {date}</ResDate>
-                    <ResTime>예매시간: {time}</ResTime>
+                    <MovieTitle>{title}</MovieTitle>
+                    <div>
+                      <ResDate>예매날짜: {date}</ResDate>
+                      <ResTime>예매시간: {time}</ResTime>
+                    </div>
                   </div>
-                </div>
-              </MovieInfoWrap>
-            );
-          })}
+                </MovieInfoWrap>
+              );
+            })}
         </MovieListWrapper>
       ) : (
         <MovieEmptyWrapper>
