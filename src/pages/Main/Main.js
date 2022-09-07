@@ -1,27 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player/lazy';
 import styled from 'styled-components';
+import Carousel from './components/Carousel/Carousel';
+import SideButton from './components/SideButton/SideButton';
+
 function Main() {
+  const [scroll, setScroll] = useState(0);
+
+  const onScroll = e => {
+    setScroll(e.currentTarget.scrollY);
+  };
+
+  window.addEventListener('scroll', onScroll);
+
+  useEffect(() => {});
   return (
     <Container>
-      <iframe
-        width="100%"
-        height="534"
-        src="https://www.youtube.com/embed/9qQuoqpw7KA?autoplay=1&mute=1&controls=0"
-        title="[블랙 아담] 티저 예고편"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+      <ReactPlayer
+        className="react-player"
+        url="https://www.youtube.com/embed/-ZtIOAb9Ypc"
+        width="150vw"
+        height="500px"
+        playing={true}
+        muted={true}
+        loop={true}
       />
+
+      {scroll >= 160 ? <SideButton opacity="1" /> : <SideButton opacity="0" />}
+      <Carousel name="무비차트" />
+      <Carousel name="상영예정작" />
     </Container>
   );
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${({ theme }) => theme.variables.flex('column', 'center', 'center')}
   width: 100vw;
-  flex-direction: column;
   background-color: rgba(232, 232, 232, 0.37);
 `;
 

@@ -2,22 +2,28 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { API } from '../../../../config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import LinktoButton from '../LinktoButton/LinktoButton';
 
 function Carousel({ name }) {
-  const [movieChart, setMovieChart] = useState([]);
-  const [movieList, setMovieList] = useState([]);
+  const [movieByRating, setMovieByRating] = useState([]);
+  const [movieByOpening, setMovieByOpening] = useState([]);
+  const [isShow, setIsShow] = useState(0);
 
   useEffect(() => {
-    fetch('/data/movieChart.json')
+    fetch(`${API.chart}?orderBase=opening_date`)
       .then(response => response.json())
-      .then(result => setMovieChart(result));
+      .then(result => {
+        setMovieByRating(result.orderList);
+      });
   }, []);
+
   useEffect(() => {
-    fetch('/data/movieList.json')
+    fetch(`${API}?orderBase=rating_week`)
       .then(response => response.json())
-      .then(result => setMovieList(result));
+      .then(result => setMovieByOpening(result.orderList));
   }, []);
 
   let settings = {
@@ -28,6 +34,7 @@ function Carousel({ name }) {
     slidesToScroll: 5,
     cssEase: 'linear',
   };
+
   return (
     <Container>
       <InnerWrap>
@@ -35,26 +42,39 @@ function Carousel({ name }) {
           <H1>{name}</H1>
           <ShowMovieChart>
             <StyleLink to="/detail">
-              전체보기 <Icon src="/images/Main/next.png" alt="showall" />
+              <span> 전체보기</span>{' '}
+              <Icon src="/images/Main/next.png" alt="showall" />
             </StyleLink>
           </ShowMovieChart>
         </WrapTitle>
         <Slider {...settings}>
           {name === '무비차트'
-            ? movieChart.map(item => {
+            ? movieByRating.map(item => {
                 return (
                   <MovieInfoWrap key={item.id}>
-                    <Img src={item.img} alt={item.title} />
+                    <HoverDiv
+                      onMouseEnter={() => setIsShow(item.id)}
+                      onMouseLeave={() => setIsShow(0)}
+                    >
+                      {isShow === item.id && <LinktoButton id={isShow} />}
+                      <Img src={item.thumbnail_image_url} alt={item.title} />
+                    </HoverDiv>
                     <Movietitle>{item.title}</Movietitle>
                     <Rank>{item.id}</Rank>
                   </MovieInfoWrap>
                 );
               })
             : name === '상영예정작'
-            ? movieList.map(item => {
+            ? movieByOpening.map(item => {
                 return (
                   <MovieInfoWrap key={item.id}>
-                    <Img src={item.img} alt={item.title} />
+                    <HoverDiv
+                      onMouseEnter={() => setIsShow(item.id)}
+                      onMouseLeave={() => setIsShow(0)}
+                    >
+                      {isShow === item.id && <LinktoButton id={isShow} />}
+                      <Img src={item.thumbnail_image_url} alt={item.title} />
+                    </HoverDiv>
                     <Movietitle>{item.title}</Movietitle>
                   </MovieInfoWrap>
                 );
@@ -94,6 +114,10 @@ const Rank = styled.h1`
 
 const InnerWrap = styled.div`
   width: 980px;
+  *:focus {
+    outline: 0;
+    outline: none;
+  }
 
   .slick-prev,
   .slick-next {
@@ -185,20 +209,49 @@ const MovieInfoWrap = styled.div`
   text-align: center;
   position: relative;
 `;
+
 const ShowMovieChart = styled.div`
   ${({ theme }) => theme.variables.flex('row', 'center', 'center')}
-  width: 130px;
+  width: 140px;
   min-height: 45px;
   box-shadow: 1px 3px 6px 0 rgb(0 0 0 / 10%);
   border-radius: 25px;
   font-size: 17px;
   font-weight: 500;
+  padding-left: 15px;
   color: black;
 `;
 const Img = styled.img`
-  width: 170px;
+  width: 175px;
   height: 234px;
   border-radius: 15px;
+`;
+
+const HoverDiv = styled.div`
+  ${({ theme }) => theme.variables.flex('column', 'center', 'center')}
+  width: 175px;
+  height: 234px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  &:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.09) 35%,
+      rgba(0, 0, 0, 0.85)
+    );
+    z-index: 2;
+  }
 `;
 
 const Icon = styled.img`
@@ -223,10 +276,12 @@ const Movietitle = styled.h1`
   margin-right: 25px;
 `;
 const StyleLink = styled(Link)`
+  ${props => props.theme.variables.flex('row', 'space-between', 'center')};
   text-decoration: none;
   &:visited,
   &:hover &:active {
     color: inherit;
+    outline: none;
   }
 `;
 
