@@ -27,3 +27,7 @@
 
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=round&logo=MySQL&logoColor=white" /> 
   <img src="https://img.shields.io/badge/AWS-232F3E?style=round&logo=Amazon%20AWS&logoColor=white"/>
+
+[![Video Label](https://www.youtube.com/watch?v=yq8nFL97u9M)
+
+👉 화면을 클릭하면 영상으로 이동합니다.
