@@ -5,19 +5,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 function Carousel({ id }) {
-  const [movieInfo, setMovieInfo] = useState([]);
+  // const [movieInfo, setMovieInfo] = useState([]);
 
   // useEffect(() => {
   //   fetch(`http://10.58.4.124:3000/movie/${id}`)
   //     .then(response => response.json())
   //     .then(result => setMovieInfo(result));
   // }, [id]);
-
-  useEffect(() => {
-    fetch('/data/test.json')
-      .then(response => response.json())
-      .then(result => setMovieInfo(result));
-  }, []);
 
   let settings = {
     dots: true,
@@ -32,7 +26,7 @@ function Carousel({ id }) {
   return (
     <Container>
       <InnerWrap {...settings}>
-        {movieInfo.map(({ images }) => {
+        {id.map(({ images }) => {
           return Object.values(images).map((item, index) => {
             return <Img src={item} key={index} alt="title" />;
           });

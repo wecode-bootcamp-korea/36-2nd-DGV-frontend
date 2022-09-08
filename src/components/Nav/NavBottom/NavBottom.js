@@ -22,7 +22,7 @@ function NavBottom() {
         </DropdownTitlelist>
         <SearchBox>
           <Input />
-          <SearchIcon src="images/Nav/loupe.png" />
+          <SearchIcon src="/images/Nav/loupe.png" />
         </SearchBox>
       </InnerWrap>
       <Dropdown

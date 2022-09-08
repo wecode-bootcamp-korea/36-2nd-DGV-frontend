@@ -13,7 +13,7 @@ function Carousel({ name }) {
   const [isShow, setIsShow] = useState(0);
 
   useEffect(() => {
-    fetch(`${API.chart}?orderBase=opening_date`)
+    fetch(`${API.Chart}?orderBase=opening_date`)
       .then(response => response.json())
       .then(result => {
         setMovieByRating(result.orderList);
@@ -21,7 +21,7 @@ function Carousel({ name }) {
   }, []);
 
   useEffect(() => {
-    fetch(`${API}?orderBase=rating_week`)
+    fetch(`${API.Chart}?orderBase=rating_week`)
       .then(response => response.json())
       .then(result => setMovieByOpening(result.orderList));
   }, []);
@@ -40,7 +40,7 @@ function Carousel({ name }) {
         <WrapTitle>
           <H1>{name}</H1>
           <ShowMovieChart>
-            <StyleLink to="/detail">
+            <StyleLink to="/moviechart">
               <span> 전체보기</span>{' '}
               <Icon src="/images/Main/next.png" alt="showall" />
             </StyleLink>

@@ -76,6 +76,7 @@ const Img = styled.img`
   width: 197px;
   height: 295.5px;
   margin-bottom: 5px;
+  border-radius: 5px;
 `;
 
 const MovieTitle = styled.span`
@@ -87,15 +88,16 @@ const MovieTitle = styled.span`
   white-space: nowrap;
 `;
 
-const MovieEngTitle = styled.span`
+const MovieEngTitle = styled.p`
   margin-right: 10px;
+  margin-bottom: 5px;
   color: #333333;
   font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
 `;
 
-const MovieGenre = styled.span`
+const MovieGenre = styled.p`
   color: #333333;
   font-size: 16px;
   white-space: nowrap;

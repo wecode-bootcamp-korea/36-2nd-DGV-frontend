@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function LinktoButton({ id }) {
   return (
     <div>
-      <Link to={`/movie/${id}`}>
+      <Link to={`/movies/${id}`}>
         <Button backgcolor="white" color="black">
           상세보기
         </Button>

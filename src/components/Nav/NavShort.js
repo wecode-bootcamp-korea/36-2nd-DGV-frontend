@@ -29,7 +29,7 @@ function NavShort() {
         </DropdownTitlelist>
         <SearchBoxDiv>
           <Input />
-          <SearchImg src="images/Nav/whiteloupe.png" />
+          <SearchImg src="/images/Nav/whiteloupe.png" />
         </SearchBoxDiv>
       </InnerDiv>
       <Dropdown

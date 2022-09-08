@@ -9,7 +9,6 @@ import Payment from './pages/Payment/Payment';
 import Mypage from './pages/Mypage/Mypage';
 import ReservedMovies from './pages/Mypage/MypageSubs/ReservedMovies';
 import MypageMain from './pages/Mypage/MypageSubs/MypageMain';
-// import Nav from './src/components/Nav/Nav.js';
 import MovieChart from './pages/Moviechart/MovieChart';
 import ComingUp from './pages/Moviechart/SubMovieChart/ComingUp';
 import MovieList from './pages/Moviechart/SubMovieChart/MovieList';
@@ -19,12 +18,12 @@ import Nav from './components/Nav/Nav';
 const Router = () => {
   return (
     <BrowserRouter>
-      {/* <Nav /> */}
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
         <Route path="/booking" element={<Booking />} />
-        <Route path="/movie/:movieId" element={<Detail />} />
+        <Route path="/movies/:movieId" element={<Detail />} />
         <Route path="/list" element={<List />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/mypage/*" element={<Mypage />}>

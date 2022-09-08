@@ -37,8 +37,8 @@ function ReservedMovies() {
                 <div>
                   <MovieTitle>{title}</MovieTitle>
                   <div>
-                    <div>예매날짜: {date}</div>
-                    <div>예매시간: {time}</div>
+                    {/* <div>예매날짜: {date}</div>
+                    <div>예매시간: {time}</div> */}
                   </div>
                 </div>
               </MovieInfoWrap>
@@ -128,6 +128,7 @@ const MovieInfoWrap = styled.div`
 const Img = styled.img`
   width: 197px;
   height: 295.2px;
+  border-radius: 5px;
 `;
 
 const MovieTitle = styled.span`

@@ -61,7 +61,7 @@ function Dropdown({ isShow, onMouseLeave, onMouseEnter, top }) {
 }
 
 const MOVIE = [
-  { id: 1, list: ' 무비차트 ', url: '/list' },
+  { id: 1, list: ' 무비차트 ', url: '/moviechart' },
   { id: 2, list: ' 아트하우스 ', url: '/' },
   { id: 3, list: ' ICECON ', url: '/' },
 ];
