@@ -5,6 +5,7 @@ import plusSign from '../../assets/Footer/Main/plusSign.svg';
 
 function MovieChart() {
   const page = useLocation();
+  console.log(page);
 
   return (
     <div className="MovieChart">
@@ -68,9 +69,7 @@ const TriangleMovieChart = styled.img`
   padding-bottom: 2px;
   margin-right: 5px;
   visibility: ${({ page }) =>
-    page === '/movieChart/moviechart' || page === '/movieChart'
-      ? 'visible'
-      : 'hidden'}; ;
+    page === '/moviechart' ? 'visible' : 'hidden'}; ;
 `;
 
 const TriangleComingSoon = styled.img`
@@ -79,14 +78,12 @@ const TriangleComingSoon = styled.img`
   padding-bottom: 2px;
   margin-right: 5px;
   visibility: ${({ page }) =>
-    page === '/movieChart/comingup' ? 'visible' : 'hidden'}; ;
+    page === '/moviechart/comingup' ? 'visible' : 'hidden'}; ;
 `;
 
 const OnMovieChart = styled(Link)`
   color: ${({ page, theme }) =>
-    page === '/movieChart/moviechart' || page === '/movieChart'
-      ? theme.style.logoColor
-      : 'black'};
+    page === '/moviechart' ? theme.style.logoColor : 'black'};
 
   text-decoration: none;
 
@@ -97,7 +94,7 @@ const OnMovieChart = styled(Link)`
 
 const OnComingSoonChart = styled(Link)`
   color: ${({ page, theme }) =>
-    page === '/movieChart/comingup' ? theme.style.logoColor : 'black'};
+    page === '/moviechart/comingup' ? theme.style.logoColor : 'black'};
 
   text-decoration: none;
 

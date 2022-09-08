@@ -8,18 +8,25 @@ import { API } from '../../config';
 import Index from './components/Index/Index';
 
 function Detail() {
-  const [movieInfo, setMovieInfo] = useState({});
+  const [movieInfo, setMovieInfo] = useState([]);
   const [getTitle, setGetTitle] = useState('');
 
   const params = useParams();
+  const { movieId } = params;
 
   useEffect(() => {
-    fetch(`${API.detail}/${params.movieId}`)
+    fetch(`http://10.58.2.182:3000/movies/${params.movieId}`)
       .then(response => response.json())
       .then(result => setMovieInfo(result));
   }, [params.movieId]);
 
-  const imageSrc = movieInfo.images.Object.values();
+  // useEffect(() => {
+  //   fetch('/data/test.json')
+  //     .then(response => response.json())
+  //     .then(result => setMovieInfo(result));
+  // }, []);
+  // console.log(movieInfo);
+
   return (
     <Container>
       <InnerWrap>
@@ -55,7 +62,7 @@ function Detail() {
         <MovieContents title={getTitle} />
         <div id="2" />
         <Subtitle>스틸컷</Subtitle>
-        <Carousel id={imageSrc} />
+        <Carousel id={movieInfo} />
         <Yellowbg>
           <Ad src="/images/Detail/Ad.png" alt="ad" />
         </Yellowbg>

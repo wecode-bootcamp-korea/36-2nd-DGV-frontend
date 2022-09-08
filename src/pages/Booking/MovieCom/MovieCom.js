@@ -57,7 +57,11 @@ const Content = styled.div`
   padding: 1rem 1.4rem;
   border: 0.5px solid rgb(0 0 0 /20%);
   background-color: #f2f0e5;
-  overflow: scroll;
+  overflow: auto;
+
+  &:-webkit-scrollbar-track {
+    background-color: black;
+  }
 `;
 
 const Top = styled.div`

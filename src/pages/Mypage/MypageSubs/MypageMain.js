@@ -39,8 +39,8 @@ function MypageMain() {
                   <div>
                     <MovieTitle>{title}</MovieTitle>
                     <div>
-                      <ResDate>예매날짜: {date}</ResDate>
-                      <ResTime>예매시간: {time}</ResTime>
+                      {/* <ResDate>예매날짜: {date}</ResDate>
+                      <ResTime>예매시간: {time}</ResTime> */}
                     </div>
                   </div>
                 </MovieInfoWrap>
@@ -107,7 +107,7 @@ const MovieListWrapper = styled.div`
   flex-wrap: wrap;
   width: 810px;
   height: 440px;
-  padding: 30px 71px;
+  padding: 30px 70px;
   border: 1px solid black;
   overflow: scroll;
 `;
@@ -141,6 +141,8 @@ const MovieInfoWrap = styled.div`
 
 const Img = styled.img`
   width: 197px;
+  height: 295.2px;
+  border-radius: 5px;
 `;
 
 const MovieTitle = styled.span`
